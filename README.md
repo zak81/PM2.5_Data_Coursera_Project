@@ -15,7 +15,9 @@ The data for this assignment are available from the course web site as a single 
 ￼￼
 ￼￼￼￼￼
 Data for Peer Assessment (https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2FNEI_data.zip) [29Mb]
+
 The zip file contains two files:
+
 PM2.5 Emissions Data ( summarySCC_PM25.rds ): This file contains a data frame with all of the PM2.5 emissions data for 1999, 2002, 2005, and 2008. For each year, the table contains number of tons of PM2.5 emitted from a specific type of source for the entire year.
 ￼￼￼
 
