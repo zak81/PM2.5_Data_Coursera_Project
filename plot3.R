@@ -14,8 +14,7 @@ if(!exists("SCC")) {
 ## subset Baltimore City five-digit number
 baltimore <- NEI[NEI$fips == "24510", ]
 
-## Used base function aggregate to split baltimore data into subsets by type and year
-## apply function sum to subsets
+## Used base function aggregate to split baltimore data into subsets by type, year and apply sum
 ttl_emissions <- aggregate(Emissions ~ type + year, data = baltimore, sum)
 
 ## Open a graphic device
