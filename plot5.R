@@ -1,4 +1,4 @@
-## plot4.R
+## plot5.R
 
 library(ggplot2)
 
@@ -16,14 +16,14 @@ if(!exists("merged_data")) {
   merged_data <- merge(NEI, SCC, by.x = "SCC", by.y = "SCC")
 }
 
-## Match keyword "Coal", case insensitive in Short.Name variable and subset data
-source_coal <- subset(merged_data, grepl("Coal", merged_data$Short.Name, ignore.case = TRUE))
+## Subset vehicle source by selecting type "ON-ROAD" and five-digit number for Baltimore City, Maryland
+vehicle_source_baltimore <- subset(merged_data, fips == "24510" & type == "ON-ROAD")
 
-## Used base function aggregate to split source_coal data by year and apply sum
-ttl_emissions <- aggregate(Emissions ~ year, data = source_coal, sum)
+## Used aggregate function to split data by year and apply sum
+ttl_emissions <- aggregate(Emissions ~ year, data = vehicle_source_baltimore, sum)
 
 ## Open a graphic device
-png("plot4.PNG", width = 640)
+png("plot5.PNG")
 
 ## Create a ggplot plot
 g <- ggplot(ttl_emissions, aes(year, Emissions)) +
@@ -31,7 +31,7 @@ g <- ggplot(ttl_emissions, aes(year, Emissions)) +
   geom_point() +
   xlab("Year") +
   ylab(expression(paste("Total PM " [2.5], " emission (tons)"))) +
-  ggtitle(expression(paste("Total PM " [2.5], " emission by coal combustion-related sources in the U.S.")))
+  ggtitle(expression(paste("Total PM " [2.5], " emission by motor vehicle sources in Baltimore City")))
 
 ## Print to a graphic device
 print(g)
