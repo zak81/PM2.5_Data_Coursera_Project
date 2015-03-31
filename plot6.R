@@ -38,7 +38,7 @@ g <- ggplot(ttl_emissions, aes(year, Emissions, color = fips)) +
   xlab("Year") +
   ylab(expression(paste("Total PM " [2.5], " emission (tons)"))) +
   ggtitle(expression(paste("Comparison of Total PM " [2.5], " emission by motor vehicle sources in Baltimore City and Los Angeles County"))) +
-  geom_smooth(method = "lm", se=FALSE, color="black", linetype = 2, show_guide = TRUE)
+  geom_smooth(method = "lm", se = FALSE, color = "black", linetype = 2)
   
 ## Print to a graphic device
 print(g)
